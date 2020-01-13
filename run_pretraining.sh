@@ -1,0 +1,17 @@
+python run_pretraining.py \
+    --input_file=gs://bert_tmp_bucket/tf_examples.tfrecord \
+    --output_dir=gs://bert_tmp_bucket/tmp_albert/pretraining_output \
+    --albert_config_file=config/albert_base.json \
+    --do_train \
+    --do_eval \
+    --train_batch_size=4096 \
+    --eval_batch_size=64 \
+    --max_seq_length=256 \
+    --max_predictions_per_seq=20 \
+    --optimizer='lamb' \
+    --learning_rate=.00176 \
+    --num_train_steps=125000 \
+    --num_warmup_steps=3125 \
+    --use_tpu = True \
+    --tpu_name=test-tpu \
+    --save_checkpoints_steps=5000
