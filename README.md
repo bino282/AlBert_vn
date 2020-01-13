@@ -73,18 +73,29 @@ python run_pretraining.py \
 ```python
 from transformers import AlbertForMaskedLM, BertTokenizer
 import torch
+import unicodedata
+from transformers import  tokenization_bert
+def _is_punctuation(char):
+    """Override this function to keep char '_' """
+    cp = ord(char)
+    if(char=='_'):
+        return False
+    if (cp >= 33 and cp <= 47) or (cp >= 58 and cp <= 64) or (cp >= 91 and cp <= 96) or (cp >= 123 and cp <= 126):
+        return True
+    cat = unicodedata.category(char)
+    if cat.startswith("P"):
+        return True
+    return False
+tokenization_bert._is_punctuation = _is_punctuation
+
+
 MODEL_CLASSES = {
     'albert': (AlbertForMaskedLM,  BertTokenizer)
 }
-
-vocab_file = 'albert_base/vocab_vn.txt'
-class tokenizer_albert(BertTokenizer):
-    def _run_split_on_punc(self, text, never_split=None):
-        return ["".join(x) for x in output]
+vocab_file = '../local/albert_300k/vocab.txt'
 model_class, tokenizer_class = MODEL_CLASSES["albert"]
-
-tokenizer = tokenizer_albert(vocab_file=vocab_file,do_lower_case=False,max_len=256)
-model = model_class.from_pretrained("albert_base")
+tokenizer = BertTokenizer(vocab_file=vocab_file,do_lower_case=False,max_len=256)
+model = model_class.from_pretrained("../local/albert_300k")
 model.eval()
 text = "trong quá_trình truy_bắt , khống_chế , bắt_giữ nhóm đối_tượng chống_đối đặc_biệt nguy_hiểm nêu trên , 3 cán_bộ , chiến_sĩ công_an đã hy_sinh ."
 print("Origin text : "+text)
