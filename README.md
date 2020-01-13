@@ -1,4 +1,4 @@
-# ALBERT For Vietnamese on word level ( apply word segmentation)
+# ALBERT for Vietnamese on word level ( apply word segmentation)
 ======
 
 ***************New January 13 , 2020 ***************
