@@ -3,13 +3,13 @@
 
 ***************New January 13 , 2020 ***************
 
-Vietnamese models are released.
+AlBert for Vietnamese models are released.
 
-In this version, we apply vietnamese word segmentation when tokenization. We train ALBERT-base for 300k steps.
+In this version, we apply vietnamese word segmentation when tokenization. We train [ALBERT-base](https://github.com/google-research/ALBERT) for 300k steps.
 
-Petrained using  95274 vocab (use tokenizer from VncoreNLP ), on Vietnamese wikipedia corpus from Wikipedia + 400k vietnamese news (We don't release this dataset) .
+Petrained using  95274 vocab use tokenizer from [VncoreNLP](https://github.com/vncorenlp/VnCoreNLP), on Vietnamese wikipedia corpus from Wikipedia + 400k vietnamese news (We don't release this dataset).
 
-We don't use word sentencepiece, instead of we use basic bert tokenization with input is tokenized by VncoreNLP. we have modified tokenizer of bert for keep character ('_') use for word segmentation char.
+We don't use word sentencepiece, instead of we use basic bert tokenization with input is tokenized by VncoreNLP. we have modified tokenizer of bert for keep character _ (word segmentation char).
 
 You can download trained model:
 - [tensorflow](https://vs-insai-storage.s3-ap-southeast-1.amazonaws.com/albert/tf/albert_base.zip).
