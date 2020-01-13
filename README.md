@@ -3,6 +3,8 @@
 
 ***************New January 13 , 2020 ***************
 
+**[ALBERT](https://github.com/google-research/ALBERT)** (from Google Research and the Toyota Technological Institute at Chicago) released with the paper [ALBERT: A Lite BERT for Self-supervised Learning of Language Representations](https://arxiv.org/abs/1909.11942), by Zhenzhong Lan, Mingda Chen, Sebastian Goodman, Kevin Gimpel, Piyush Sharma, Radu Soricut.
+
 AlBert for Vietnamese models are released.
 
 In this version, we apply vietnamese word segmentation when tokenization. We train [ALBERT-base](https://github.com/google-research/ALBERT) for 300k steps.
