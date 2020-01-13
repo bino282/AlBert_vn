@@ -92,10 +92,10 @@ tokenization_bert._is_punctuation = _is_punctuation
 MODEL_CLASSES = {
     'albert': (AlbertForMaskedLM,  BertTokenizer)
 }
-vocab_file = '../local/albert_300k/vocab.txt'
+vocab_file = 'albert_base/vocab.txt'
 model_class, tokenizer_class = MODEL_CLASSES["albert"]
 tokenizer = BertTokenizer(vocab_file=vocab_file,do_lower_case=False,max_len=256)
-model = model_class.from_pretrained("../local/albert_300k")
+model = model_class.from_pretrained("albert_base")
 model.eval()
 text = "trong quá_trình truy_bắt , khống_chế , bắt_giữ nhóm đối_tượng chống_đối đặc_biệt nguy_hiểm nêu trên , 3 cán_bộ , chiến_sĩ công_an đã hy_sinh ."
 print("Origin text : "+text)
